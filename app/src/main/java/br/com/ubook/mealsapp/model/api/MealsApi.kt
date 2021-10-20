@@ -21,14 +21,13 @@ class MealsWeService {
         api = retrofit.create(MealsApi::class.java)
 
     }
-    fun getMeals(): Call<MealsCategoryResponse> {
+    suspend fun getMeals(): MealsCategoryResponse {
         return api.getMeals()
-
     }
 
     interface MealsApi {
         @GET("categories.php")
-        fun getMeals(): Call<MealsCategoryResponse>
+        suspend fun getMeals(): MealsCategoryResponse
 
     }
 }
