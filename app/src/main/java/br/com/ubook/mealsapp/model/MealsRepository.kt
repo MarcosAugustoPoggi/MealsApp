@@ -25,4 +25,16 @@ class MealsRepository(private val webService: MealsWeService = MealsWeService())
         }
 
     }
+
+    companion object {
+        @Volatile
+        private var instance: MealsRepository? = null
+
+        fun getInstance() = instance?: synchronized(this) {
+            instance ?: MealsRepository().also {
+                instance = it
+            }
+
+        }
+    }
 }
