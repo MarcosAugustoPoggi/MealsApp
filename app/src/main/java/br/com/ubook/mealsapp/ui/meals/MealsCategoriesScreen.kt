@@ -22,27 +22,33 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import br.com.ubook.mealsapp.model.response.MealResponse
 import br.com.ubook.mealsapp.ui.theme.MealsAppTheme
 import coil.compose.rememberImagePainter
+import javax.security.auth.callback.Callback
 
 
 @Composable
-fun MealsCategoriesScreen() {
+fun MealsCategoriesScreen(navigationCallback: (String) -> Unit) {
     val viewModel: MealsCategoriesViewModel = viewModel()
     val meals = viewModel.mealsState.value
 
     LazyColumn(contentPadding = PaddingValues(16.dp)) {
         items(meals) { meal ->
-            MealCategory(meal)
+            MealCategory(meal, navigationCallback)
         }
     }
 }
 
 @Composable
-fun MealCategory(meal: MealResponse) {
+fun MealCategory(meal: MealResponse, navigationCallback: (String) -> Unit) {
     var isExpanded by remember { mutableStateOf(false)}
     Card(
         shape = RoundedCornerShape(6.dp),
         elevation = 4.dp,
-        modifier = Modifier.fillMaxWidth().padding(top = 16.dp)
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 16.dp)
+            .clickable {
+                navigationCallback(meal.id)
+            }
     ) {
         Row(modifier = Modifier.animateContentSize()) {
             Image(
@@ -91,6 +97,6 @@ fun MealCategory(meal: MealResponse) {
 @Composable
 fun DefaultPreview() {
     MealsAppTheme {
-        MealsCategoriesScreen()
+        MealsCategoriesScreen({})
     }
 }
