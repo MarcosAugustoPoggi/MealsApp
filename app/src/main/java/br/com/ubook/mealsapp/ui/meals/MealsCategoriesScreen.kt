@@ -22,7 +22,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import br.com.ubook.mealsapp.model.response.MealResponse
 import br.com.ubook.mealsapp.ui.theme.MealsAppTheme
 import coil.compose.rememberImagePainter
-import javax.security.auth.callback.Callback
+
 
 
 @Composable
