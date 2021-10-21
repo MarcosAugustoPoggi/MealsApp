@@ -41,7 +41,7 @@ import br.com.ubook.mealsapp.ui.theme.MealsAppTheme
              }
          }
          composable(
-             route = "destination_meal_details/meal_category_id",
+             route = "destination_meal_details/{meal_category_id}",
              arguments = listOf(navArgument("meal_category_id") {
                  type = NavType.StringType
              })
