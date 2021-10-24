@@ -14,6 +14,7 @@ import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -82,8 +83,10 @@ fun MealCategory(meal: MealResponse, navigationCallback: (String) -> Unit) {
             Icon(
                 imageVector = if (isExpanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
                 contentDescription = "Expand row icon",
+
                 modifier = Modifier
-                    .padding(16.dp)
+                    .padding(10.dp)
+                    .size(60.dp)
                     .align( if (!isExpanded) Alignment.CenterVertically else Alignment.Bottom)
                     .clickable { isExpanded = !isExpanded }
             )
