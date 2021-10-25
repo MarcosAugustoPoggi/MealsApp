@@ -50,6 +50,5 @@ import br.com.ubook.mealsapp.ui.theme.MealsAppTheme
              MealDetailsScreen(viewModel.mealState.value)
          }
      }
-
  }
 

@@ -28,6 +28,5 @@ class MealsWeService {
     interface MealsApi {
         @GET("categories.php")
         suspend fun getMeals(): MealsCategoryResponse
-
     }
 }
